@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types'
 import { Popup, Icon, Button } from 'semantic-ui-react'
@@ -37,20 +37,20 @@ export default class TalentCard extends React.Component {
                         </video>
                     </div>
                     <div className="content">
-                        <i className="large video icon" style={iconPadding} onClick={this.setVideoMode}></i>
+                        <i className="large user icon" style={iconPadding} onClick={this.setVideoMode}></i>
                         <a href={cvurl}><i className="large file pdf outline icon" style={iconPadding}></i></a>
                         <a href={linkedAccounts.linkedIn}><i className="large linkedin alternate icon" style={iconPadding}></i></a>
                         <a href={linkedAccounts.github}><i className="large github icon" style={iconPadding}></i></a>
                     </div>
-                        {skills.length > 0 ?
-                            <div style={skillContainer}>
-                                {skills.map(skill => (
-                                    <Button basic color="blue">{skill}</Button>
-                                ))}
-                            </div>
-                            :
-                            <React.Fragment></React.Fragment>
-                        }
+                    {skills.length > 0 ?
+                        <div style={skillContainer}>
+                            {skills.map((skill, index) => (
+                                <Button basic color="blue" key={index}>{skill}</Button>
+                            ))}
+                        </div>
+                        :
+                        <React.Fragment></React.Fragment>
+                    }
                 </div>
             )
         }
@@ -95,8 +95,8 @@ export default class TalentCard extends React.Component {
                     </div>
                     {skills.length > 0 ?
                         <div style={skillContainer}>
-                            {skills.map(skill => (
-                                <Button basic color="blue">{skill}</Button>
+                            {skills.map((skill, index) => (
+                                <Button basic color="blue" key={index}>{skill}</Button>
                             ))}
                         </div>
                         :
