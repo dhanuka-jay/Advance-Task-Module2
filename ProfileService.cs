@@ -449,7 +449,7 @@ namespace Talent.Services.Profile.Domain.Services
 
         public async Task<IEnumerable<TalentSnapshotViewModel>> GetTalentSnapshotList(string employerOrJobId, bool forJob, int position, int increment)
         {
-			var users = _userRepository.GetQueryable().Skip(position).Take(increment)
+		var users = _userRepository.GetQueryable().Where(u => u.Skills.Count > 0).Skip(position).Take(increment)
 			.Select(u => new User
 			{
 				FirstName = u.FirstName,
